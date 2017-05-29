@@ -1,21 +1,7 @@
-pipeline {
-    node('kube'){
-    stages {
-        stage('Build') {
-            steps {
-                echo 'Building..'
-            }
-        }
-        stage('Test') {
-            steps {
-                echo 'Testing..'
-            }
-        }
-        stage('Deploy') {
-            steps {
-                echo 'Deploying....'
-            }
-        }
-    }
-}
+node('kube'){
+  stage 'first'
+  echo 'worked'
+
+  stage 'second'
+  echo 'again'
 }
