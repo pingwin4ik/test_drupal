@@ -1,6 +1,5 @@
 pipeline {
-    node('kube')
-
+    node('kube') {
     stages {
         stage('Build') {
             steps {
