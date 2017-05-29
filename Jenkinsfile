@@ -1,7 +1,5 @@
 node('kube'){
-  stage 'first'
-  echo 'worked'
+  stage 'Build Docker image'
+ def image = docker.build('pingwin4ik/drupal', '.')
 
-  stage 'second'
-  echo 'again'
 }
