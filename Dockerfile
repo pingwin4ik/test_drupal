@@ -1,1 +1,1 @@
-FROM       pingwin4ik/web1
+FROM       FROM drupal:8
