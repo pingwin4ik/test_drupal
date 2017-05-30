@@ -1,1 +1,1 @@
-FROM       ubuntu:latest
+FROM       pingwin4ik/web1
