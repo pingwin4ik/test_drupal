@@ -71,7 +71,7 @@ metadata:
   labels:
     app: my-drupaldb
   name: my-drupaldb
-  namespace: default
+  namespace: jenkins
 
 spec:
   replicas: 1
