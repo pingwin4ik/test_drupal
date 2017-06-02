@@ -27,3 +27,23 @@ spec:
         image: pingwin4ik/drupal:v3
         ports:
         - containerPort: 80
+        volumeMounts:
+        - name: drupal-persistent-storage
+          mountPath: /var/www/html
+      volumes:
+      - name: drupal-persistent-storage
+        persistentVolumeClaim:
+          claimName: dp-pv-claim
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: dp-pv-claim
+  labels:
+    app: drupal
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+      requests:
+          storage: 5Gi
