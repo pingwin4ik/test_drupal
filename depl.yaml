@@ -26,9 +26,6 @@ spec:
       - name: drupal
         image: pingwin4ik/drupal:v3
         command: /bin/bash -c "cd /var/www/html && drush si -y --db-url=mysql://root:root@my-drupaldb/drupal"
-      /bin/bash "chown -R www-data:www-data /var/www/html/sites/default/files"
-      /bin/bash "cd /var/www/html && drush en token -y"
-      /bin/bash "cd /var/www/html && drush uli -l http://localhost:$DRUPALPORT"  
         ports:
         - containerPort: 80
         volumeMounts:
