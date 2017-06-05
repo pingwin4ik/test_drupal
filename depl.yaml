@@ -23,12 +23,7 @@ spec:
         app: drupal
     spec: 
       containers: 
-        - 
-          args: 
-            - cd /var/www/html && drush si -y --db-url=mysql://root:root@my-drupaldb/drupal
-            - chown -R www-data:www-data /var/www/html/sites/default/files
-          command: 
-            - ["/bin/sh","-c"]
+        - args:[\"cd /var/www/html && drush si -y --db-url=mysql://root:root@my-drupaldb/drupal\"; \"chown -R www-data:www-data /var/www/html/sites/default/files\"] command:[\"/bin/sh\",\"-c\"]
           image: "pingwin4ik/drupal:v3"
           name: drupal
           ports: 
