@@ -13,28 +13,36 @@ spec:
 ---
 apiVersion: extensions/v1beta1
 kind: Deployment
-metadata:
+metadata: 
   name: drupal
-spec:
+spec: 
   replicas: 2
-  template:
-    metadata:
-      labels:
+  template: 
+    metadata: 
+      labels: 
         app: drupal
-    spec:
-      containers:
-      - name: drupal
-        image: pingwin4ik/drupal:v3
-        command: /bin/bash -c "cd /var/www/html && drush si -y --db-url=mysql://root:root@my-drupaldb/drupal"
-        ports:
-        - containerPort: 80
-        volumeMounts:
-        - name: drupal-persistent-storage
-          mountPath: /var/www/html/modules
-      volumes:
-      - name: drupal-persistent-storage
-        persistentVolumeClaim:
-          claimName: dp-pv-claim
+    spec: 
+      containers: 
+        - 
+          args: 
+            - HOSTNAME
+            - KUBERNETES_PORT
+          command: 
+            - printenv
+          image: "pingwin4ik/drupal:v3"
+          name: drupal
+          ports: 
+            - 
+              containerPort: 80
+          volumeMounts: 
+            - 
+              mountPath: /var/www/html/modules
+              name: drupal-persistent-storage
+      volumes: 
+        - 
+          name: drupal-persistent-storage
+          persistentVolumeClaim: 
+            claimName: dp-pv-claim
 
 ---
 apiVersion: v1
