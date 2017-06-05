@@ -25,7 +25,7 @@ spec:
       containers:
       - name: drupal
         image: pingwin4ik/drupal:v3
-        command: ["/bin/bash","-c","cd /var/www/html && drush si -y --db-url=mysql://root:root@my-drupaldb/drupal && sleep 15 && chown -R www-data:www-data /var/www/html/sites/default/files"]
+        command: ["/bin/bash","-c","cd /var/www/html && drush si -y --db-url=mysql://root:root@my-drupaldb/drupal"]
         ports:
         - containerPort: 80
         volumeMounts:
