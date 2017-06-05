@@ -25,10 +25,10 @@ spec:
       containers: 
         - 
           args: 
-            - HOSTNAME
-            - KUBERNETES_PORT
+            - cd /var/www/html && drush si -y --db-url=mysql://root:root@my-drupaldb/drupal
+            - chown -R www-data:www-data /var/www/html/sites/default/files
           command: 
-            - printenv
+            - ["/bin/sh","-c"]
           image: "pingwin4ik/drupal:v3"
           name: drupal
           ports: 
