@@ -34,6 +34,11 @@ spec:
       - name: drupal-persistent-storage
         persistentVolumeClaim:
           claimName: dp-pv-claim
+      command:
+      - /bin/bash -c "cd /var/www/html && drush si -y --db-url=mysql://root:root@my-drupaldb/drupal"
+      - /bin/bash -c "chown -R www-data:www-data /var/www/html/sites/default/files"
+      - /bin/bash -c "cd /var/www/html && drush en token -y"
+      - /bin/bash -c "cd /var/www/html && drush uli -l http://localhost:$DRUPALPORT"
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
