@@ -25,8 +25,7 @@ spec:
       containers: 
          image: "pingwin4ik/drupal:v3"
          name: drupal
-         command: ["/bin/sh"]
-         args: ["-c","cd /var/www/html && drush si -y --db-url=mysql://root:root@my-drupaldb/drupal","chown -R www-data:www-data /var/www/html/sites/default/files"] 
+         command: ["/bin/bash","-c","cd /var/www/html && drush si -y --db-url=mysql://root:root@my-drupaldb/drupal"]
          ports: 
             - 
               containerPort: 80
