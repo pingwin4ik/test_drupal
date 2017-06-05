@@ -23,13 +23,14 @@ spec:
         app: drupal
     spec: 
       containers: 
-        - args:[\"cd /var/www/html && drush si -y --db-url=mysql://root:root@my-drupaldb/drupal\"; \"chown -R www-data:www-data /var/www/html/sites/default/files\"] command:[\"/bin/sh\",\"-c\"]
-          image: "pingwin4ik/drupal:v3"
-          name: drupal
-          ports: 
+         image: "pingwin4ik/drupal:v3"
+         name: drupal
+         command: ["/bin/sh"]
+         args: ["-c","cd /var/www/html && drush si -y --db-url=mysql://root:root@my-drupaldb/drupal","chown -R www-data:www-data /var/www/html/sites/default/files"] 
+         ports: 
             - 
               containerPort: 80
-          volumeMounts: 
+         volumeMounts: 
             - 
               mountPath: /var/www/html/modules
               name: drupal-persistent-storage
